@@ -9,4 +9,5 @@ networkx>=2.8
 graphviz>=0.20
 torch>=2.0.0
 scikit-learn>=1.0.0
-optuna>=3.0.0 
+optuna>=3.0.0
+fairlearn>=0.8.0 
