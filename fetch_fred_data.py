@@ -79,7 +79,7 @@ def fetch_fred_data(api_key=None, start_date='1990-01-01'):
         combined_df = list(data_dict.values())[0]
         
         # Add other series
-        for description, df_temp in list(data_dict.values())[1:]:
+        for df_temp in list(data_dict.values())[1:]:
             combined_df = combined_df.join(df_temp, how='outer')
         
         print(f"\n✅ Successfully created combined dataset with {len(combined_df)} observations")
