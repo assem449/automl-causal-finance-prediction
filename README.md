@@ -1,155 +1,282 @@
-# FRED Macroeconomic Data Fetcher
+# AutoML Causal Finance Prediction
 
-This Python script fetches monthly macroeconomic data from the Federal Reserve Economic Data (FRED) API using the `fredapi` library.
+A comprehensive machine learning project for macroeconomic time series prediction using LSTM models with causal inference, fairness evaluation, and interpretability analysis.
 
-## Data Series Included
+## 📁 Project Structure
 
-The script fetches the following monthly macroeconomic indicators:
+```
+automl-causal-finance-prediction/
+├── data/                          # Data files
+│   ├── cleaned_macroeconomic_data.csv
+│   ├── macroeconomic_data.csv
+│   ├── macroeconomic_data_with_fairness_groups.csv
+│   └── group_statistics.csv
+├── models/                        # Trained model files
+│   └── (saved .pth files)
+├── notebooks/                     # Jupyter notebooks
+│   └── (analysis notebooks)
+├── src/                          # Source code
+│   ├── fetch_fred_data.py        # FRED data fetching
+│   ├── preprocess_data.py        # Data preprocessing
+│   ├── simple_preprocess.py      # Simplified preprocessing
+│   ├── lstm_timeseries.py        # LSTM model implementation
+│   ├── train_lstm.py            # Training pipeline
+│   ├── training_example.py       # Training examples
+│   ├── lstm_example.py          # LSTM usage examples
+│   ├── optuna_lstm_tuning.py    # Hyperparameter optimization
+│   ├── optuna_example.py        # Optuna examples
+│   ├── causal_dag.py            # Causal DAG creation
+│   ├── simple_causal_dag.py     # Simplified causal analysis
+│   ├── add_fairness_groups.py   # Fairness group creation
+│   ├── create_fairness_dataset.py # Fairness dataset creation
+│   ├── fairness_evaluation.py   # Fairness evaluation
+│   ├── fairness_example.py      # Fairness examples
+│   ├── fairlearn_evaluation.py  # Fairlearn integration
+│   ├── fairlearn_example.py     # Fairlearn examples
+│   ├── lstm_interpretability.py # Interpretability system
+│   ├── interpretability_example.py # Interpretability examples
+│   ├── setup_env.py             # Environment setup
+│   └── example_usage.py         # General usage examples
+├── outputs/                      # Generated outputs
+│   ├── *.png                    # Visualization plots
+│   ├── *.json                   # Analysis results
+│   └── *.csv                    # Generated data
+├── docs/                        # Documentation
+│   ├── README.md                # This file
+│   ├── LSTM_Documentation.md    # LSTM implementation docs
+│   ├── Optuna_Optimization_Documentation.md # Optuna docs
+│   ├── Fairlearn_Documentation.md # Fairlearn docs
+│   ├── LSTM_Interpretability_Documentation.md # Interpretability docs
+│   ├── causal_dag_summary.md    # Causal analysis summary
+│   └── env_config.txt           # Environment configuration
+├── requirements.txt              # Python dependencies
+├── .env                         # Environment variables
+├── .gitignore                   # Git ignore rules
+└── README.md                    # Main project README
+```
 
-- **Federal Funds Rate (FEDFUNDS)**: The interest rate at which depository institutions trade federal funds
-- **Unemployment Rate (UNRATE)**: The percentage of the labor force that is unemployed
-- **Inflation Rate (CPALTT01USM657N)**: Consumer Price Index for All Urban Consumers
-- **Personal Loan Delinquency Rate (DRSFRMACBS)**: Delinquency rate on single-family residential mortgages
+## 🚀 Quick Start
 
-## Setup
-
-### 1. Install Dependencies
-
+### 1. Environment Setup
 ```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Set up environment variables
+python src/setup_env.py
 ```
 
-### 2. Get a FRED API Key
-
-1. Go to [FRED API Key Registration](https://fred.stlouisfed.org/docs/api/api_key.html)
-2. Sign up for a free account
-3. Generate an API key
-
-### 3. Set Your API Key
-
-You have several options:
-
-**Option A: Using .env file (Recommended)**
+### 2. Data Fetching
 ```bash
-python setup_env.py
+# Fetch macroeconomic data from FRED
+python src/fetch_fred_data.py
 ```
-This will guide you through creating a `.env` file with your API key.
 
-**Option B: Manual .env file creation**
-Create a `.env` file in the project directory:
+### 3. Data Preprocessing
 ```bash
-FRED_API_KEY=your_api_key_here
-START_DATE=1990-01-01
+# Clean and align time series data
+python src/preprocess_data.py
 ```
 
-**Option C: Environment Variable**
+### 4. Model Training
 ```bash
-export FRED_API_KEY="your_api_key_here"
+# Train LSTM model
+python src/train_lstm.py
 ```
 
-**Option D: Direct in Script**
-Edit `fetch_fred_data.py` and modify the api_key variable.
-
-## Usage
-
-### Test Your API Key
-
-Before running the main script, you can test if your API key is working:
-
+### 5. Hyperparameter Optimization
 ```bash
-python setup_env.py --test
+# Run Optuna optimization
+python src/optuna_lstm_tuning.py
 ```
 
-### Run the Complete Script
-
+### 6. Fairness Evaluation
 ```bash
-python fetch_fred_data.py
+# Create fairness groups
+python src/create_fairness_dataset.py
+
+# Evaluate fairness
+python src/fairness_evaluation.py
 ```
 
-This will:
-- Fetch all macroeconomic data from 1990 to present
-- Display data summary and statistics
-- Save data to `macroeconomic_data.csv`
-- Generate plots saved as `macroeconomic_indicators.png`
-- Show the first 10 rows of data
+### 7. Interpretability Analysis
+```bash
+# Run interpretability analysis
+python src/lstm_interpretability.py
+```
 
-### Use Individual Functions
+## 📊 Key Features
 
-You can also import and use individual functions:
+### **Data Management**
+- **FRED API Integration**: Fetch macroeconomic indicators
+- **Time Series Preprocessing**: Clean and align data
+- **Fairness Groups**: Synthetic groups for bias evaluation
 
+### **Model Development**
+- **LSTM Architecture**: Time series prediction models
+- **Optuna Optimization**: Automated hyperparameter tuning
+- **Training Pipeline**: Comprehensive training with validation
+
+### **Causal Analysis**
+- **Causal DAG**: Directed Acyclic Graph creation
+- **Causal Inference**: Understand variable relationships
+- **Economic Interpretation**: Domain-specific analysis
+
+### **Fairness Evaluation**
+- **Fairlearn Integration**: Demographic parity and equalized odds
+- **Group Analysis**: Performance across economic groups
+- **Bias Detection**: Identify and mitigate model bias
+
+### **Interpretability**
+- **SHAP Analysis**: Game theory-based feature importance
+- **LIME Explanations**: Local interpretable explanations
+- **Gradient Analysis**: Model-specific importance
+- **Attention Analysis**: LSTM attention patterns
+
+## 🔧 Core Components
+
+### **LSTM Time Series Model**
 ```python
-from fetch_fred_data import fetch_fred_data, display_data_info, plot_data, save_data
+from src.lstm_timeseries import LSTMModel, TimeSeriesDataset
 
-# Fetch data
-df = fetch_fred_data(api_key="your_key", start_date='2000-01-01')
-
-# Display information
-display_data_info(df)
-
-# Save to file
-save_data(df, 'my_data.csv')
-
-# Create plots
-plot_data(df)
+# Create model
+model = LSTMModel(
+    input_size=3,
+    hidden_size=128,
+    num_layers=2,
+    output_size=1
+)
 ```
 
-## Output Files
+### **Optuna Hyperparameter Optimization**
+```python
+from src.optuna_lstm_tuning import OptunaLSTMTuner
 
-- `macroeconomic_data.csv`: CSV file containing all the fetched data
-- `macroeconomic_indicators.png`: Visualization of all four indicators over time
+# Initialize tuner
+tuner = OptunaLSTMTuner(
+    data=df,
+    n_trials=50,
+    timeout=3600
+)
 
-## Data Structure
-
-The resulting DataFrame has:
-- **Index**: Date (monthly frequency)
-- **Columns**: 
-  - Federal Funds Rate
-  - Unemployment Rate
-  - Inflation Rate (CPI)
-  - Personal Loan Delinquency Rate
-
-## Example Output
-
-```
-🚀 FRED Macroeconomic Data Fetcher
-==================================================
-✅ Successfully connected to FRED API
-
-📊 Fetching monthly macroeconomic data from 1990-01-01 to present...
-  🔄 Fetching Federal Funds Rate (FEDFUNDS)...
-    ✅ Retrieved 408 observations
-  🔄 Fetching Unemployment Rate (UNRATE)...
-    ✅ Retrieved 408 observations
-  🔄 Fetching Inflation Rate (CPI) (CPALTT01USM657N)...
-    ✅ Retrieved 408 observations
-  🔄 Fetching Personal Loan Delinquency Rate (DRSFRMACBS)...
-    ✅ Retrieved 408 observations
-
-✅ Successfully created combined dataset with 408 observations
-📅 Date range: 1990-01-01 to 2024-01-01
+# Run optimization
+study = tuner.optimize()
 ```
 
-## Troubleshooting
+### **Fairness Evaluation**
+```python
+from src.fairlearn_evaluation import FairlearnEvaluator
 
-### Common Issues
+# Initialize evaluator
+evaluator = FairlearnEvaluator()
 
-1. **API Key Error**: Make sure you have a valid FRED API key
-2. **Network Issues**: Check your internet connection
-3. **Rate Limits**: FRED has rate limits; if you hit them, wait a moment and try again
+# Evaluate fairness
+results = evaluator.comprehensive_fairlearn_evaluation(model, scaler)
+```
 
-### Error Messages
+### **Interpretability Analysis**
+```python
+from src.lstm_interpretability import LSTMInterpretability
 
-- `Error connecting to FRED API`: Check your API key
-- `Error fetching [SERIES_ID]`: The specific series might be temporarily unavailable
+# Initialize interpreter
+interpreter = LSTMInterpretability(model, scaler, feature_names)
 
-## Dependencies
+# Run comprehensive analysis
+results = interpreter.comprehensive_interpretation(data)
+```
 
-- `fredapi`: FRED API client
-- `pandas`: Data manipulation
-- `numpy`: Numerical operations
-- `matplotlib`: Plotting
-- `seaborn`: Enhanced plotting
+## 📈 Output Files
 
-## License
+### **Visualizations** (`outputs/`)
+- `macroeconomic_indicators.png`: Time series plots
+- `lstm_training_history.png`: Training progress
+- `optuna_optimization_results.png`: Optimization results
+- `fairness_analysis.png`: Fairness evaluation plots
+- `feature_importance_*.png`: Interpretability plots
 
-This project is open source and available under the MIT License. 
+### **Results** (`outputs/`)
+- `fairness_groups_summary.json`: Fairness group definitions
+- `interpretation_results.json`: Interpretability analysis
+- `optimization_results.json`: Optuna optimization results
+
+### **Data** (`data/`)
+- `cleaned_macroeconomic_data.csv`: Preprocessed data
+- `macroeconomic_data_with_fairness_groups.csv`: Data with fairness groups
+- `group_statistics.csv`: Group analysis statistics
+
+## 🎯 Use Cases
+
+### **Financial Risk Modeling**
+- Predict loan delinquency rates
+- Understand economic factor relationships
+- Ensure fair lending practices
+
+### **Economic Forecasting**
+- Forecast macroeconomic indicators
+- Analyze causal relationships
+- Validate model interpretability
+
+### **Regulatory Compliance**
+- Fairness evaluation for lending models
+- Interpretability for regulatory reporting
+- Bias detection and mitigation
+
+## 📚 Documentation
+
+- **LSTM_Documentation.md**: Complete LSTM implementation guide
+- **Optuna_Optimization_Documentation.md**: Hyperparameter optimization guide
+- **Fairlearn_Documentation.md**: Fairness evaluation guide
+- **LSTM_Interpretability_Documentation.md**: Interpretability analysis guide
+
+## 🔍 Examples
+
+### **Basic Usage**
+```python
+# Train and evaluate LSTM
+python src/training_example.py
+
+# Run hyperparameter optimization
+python src/optuna_example.py
+
+# Evaluate fairness
+python src/fairness_example.py
+
+# Analyze interpretability
+python src/interpretability_example.py
+```
+
+### **Advanced Analysis**
+```python
+# Comprehensive causal analysis
+python src/causal_dag.py
+
+# Full fairness evaluation
+python src/fairlearn_evaluation.py
+
+# Complete interpretability analysis
+python src/lstm_interpretability.py
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgments
+
+- **FRED API**: Federal Reserve Economic Data
+- **Optuna**: Hyperparameter optimization framework
+- **Fairlearn**: Fairness evaluation library
+- **SHAP**: Model interpretability library
+- **PyTorch**: Deep learning framework
+
+---
+
+**Note**: This project demonstrates advanced machine learning techniques for time series prediction with a focus on fairness, interpretability, and causal inference. It's designed for educational and research purposes in financial modeling and economic forecasting. 
