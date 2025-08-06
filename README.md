@@ -2,7 +2,7 @@
 
 A comprehensive machine learning project for macroeconomic time series prediction using LSTM models with causal inference, fairness evaluation, and interpretability analysis.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Environment Setup
 ```bash
@@ -52,7 +52,7 @@ python src/fairness_evaluation.py
 python src/lstm_interpretability.py
 ```
 
-## 📊 Key Features
+## Key Features
 
 ### **Data Management**
 - **FRED API Integration**: Fetch macroeconomic indicators
@@ -80,7 +80,7 @@ python src/lstm_interpretability.py
 - **Gradient Analysis**: Model-specific importance
 - **Attention Analysis**: LSTM attention patterns
 
-## 🔧 Core Components
+## Core Components
 
 ### **LSTM Time Series Model**
 ```python
@@ -132,7 +132,7 @@ interpreter = LSTMInterpretability(model, scaler, feature_names)
 results = interpreter.comprehensive_interpretation(data)
 ```
 
-## 📈 Output Files
+## Output Files
 
 ### **Visualizations** (`outputs/`)
 - `macroeconomic_indicators.png`: Time series plots
@@ -151,7 +151,7 @@ results = interpreter.comprehensive_interpretation(data)
 - `macroeconomic_data_with_fairness_groups.csv`: Data with fairness groups
 - `group_statistics.csv`: Group analysis statistics
 
-## 🎯 Use Cases
+## Use Cases
 
 ### **Financial Risk Modeling**
 - Predict loan delinquency rates
@@ -168,14 +168,14 @@ results = interpreter.comprehensive_interpretation(data)
 - Interpretability for regulatory reporting
 - Bias detection and mitigation
 
-## 📚 Documentation
+## Documentation
 
 - **LSTM_Documentation.md**: Complete LSTM implementation guide
 - **Optuna_Optimization_Documentation.md**: Hyperparameter optimization guide
 - **Fairlearn_Documentation.md**: Fairness evaluation guide
 - **LSTM_Interpretability_Documentation.md**: Interpretability analysis guide
 
-## 🔍 Examples
+## Examples
 
 ### **Basic Usage**
 ```python
@@ -204,7 +204,7 @@ python src/fairlearn_evaluation.py
 python src/lstm_interpretability.py
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -212,9 +212,9 @@ python src/lstm_interpretability.py
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is made for educational and research purposes.
 
 ## 🙏 Acknowledgments
 
