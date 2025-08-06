@@ -2,59 +2,6 @@
 
 A comprehensive machine learning project for macroeconomic time series prediction using LSTM models with causal inference, fairness evaluation, and interpretability analysis.
 
-## 📁 Project Structure
-
-```
-automl-causal-finance-prediction/
-├── data/                          # Data files
-│   ├── cleaned_macroeconomic_data.csv
-│   ├── macroeconomic_data.csv
-│   ├── macroeconomic_data_with_fairness_groups.csv
-│   └── group_statistics.csv
-├── models/                        # Trained model files
-│   └── (saved .pth files)
-├── notebooks/                     # Jupyter notebooks
-│   └── (analysis notebooks)
-├── src/                          # Source code
-│   ├── fetch_fred_data.py        # FRED data fetching
-│   ├── preprocess_data.py        # Data preprocessing
-│   ├── simple_preprocess.py      # Simplified preprocessing
-│   ├── lstm_timeseries.py        # LSTM model implementation
-│   ├── train_lstm.py            # Training pipeline
-│   ├── training_example.py       # Training examples
-│   ├── lstm_example.py          # LSTM usage examples
-│   ├── optuna_lstm_tuning.py    # Hyperparameter optimization
-│   ├── optuna_example.py        # Optuna examples
-│   ├── causal_dag.py            # Causal DAG creation
-│   ├── simple_causal_dag.py     # Simplified causal analysis
-│   ├── add_fairness_groups.py   # Fairness group creation
-│   ├── create_fairness_dataset.py # Fairness dataset creation
-│   ├── fairness_evaluation.py   # Fairness evaluation
-│   ├── fairness_example.py      # Fairness examples
-│   ├── fairlearn_evaluation.py  # Fairlearn integration
-│   ├── fairlearn_example.py     # Fairlearn examples
-│   ├── lstm_interpretability.py # Interpretability system
-│   ├── interpretability_example.py # Interpretability examples
-│   ├── setup_env.py             # Environment setup
-│   └── example_usage.py         # General usage examples
-├── outputs/                      # Generated outputs
-│   ├── *.png                    # Visualization plots
-│   ├── *.json                   # Analysis results
-│   └── *.csv                    # Generated data
-├── docs/                        # Documentation
-│   ├── README.md                # This file
-│   ├── LSTM_Documentation.md    # LSTM implementation docs
-│   ├── Optuna_Optimization_Documentation.md # Optuna docs
-│   ├── Fairlearn_Documentation.md # Fairlearn docs
-│   ├── LSTM_Interpretability_Documentation.md # Interpretability docs
-│   ├── causal_dag_summary.md    # Causal analysis summary
-│   └── env_config.txt           # Environment configuration
-├── requirements.txt              # Python dependencies
-├── .env                         # Environment variables
-├── .gitignore                   # Git ignore rules
-└── README.md                    # Main project README
-```
-
 ## 🚀 Quick Start
 
 ### 1. Environment Setup
