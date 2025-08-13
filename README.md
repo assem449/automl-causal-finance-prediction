@@ -2,6 +2,8 @@
 
 A comprehensive machine learning project for macroeconomic time series prediction using LSTM models with causal inference, fairness evaluation, and interpretability analysis.
 
+Check out the paper here -> [Paper](https://doi.org/10.6084/m9.figshare.29886581.v1)
+
 ## Quick Start
 
 ### 1. Environment Setup
